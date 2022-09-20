@@ -13,12 +13,12 @@ public class SimpletonCalculator {
     
     public static void main(String[] args) {
         System.out.println("Введите число.");
-        n1 = Number(s, n1);
+        n1 = addNumber(s, n1);
         while (true) {
             System.out.println("Введите оператор.");
-            s1 = Operator(s, s1);
+            s1 = addOperator(s, s1);
             System.out.println("Введите число.");
-            n2 = Number(s, n2);
+            n2 = addNumber(s, n2);
             switch (s1) {
                 case "+":
                     n3 = n1.add(n2);
@@ -51,7 +51,7 @@ public class SimpletonCalculator {
             }
         }
 
-static BigDecimal Number(Scanner sc, BigDecimal d1) {
+static BigDecimal addNumber(Scanner sc, BigDecimal d1) {
         checkForKeywords(sc);
         try {
             d1 = sc.nextBigDecimal();
@@ -60,11 +60,11 @@ static BigDecimal Number(Scanner sc, BigDecimal d1) {
         } catch (InputMismatchException e) {
             System.out.println("Введите число.");
             sc.nextLine();
-            return Number(sc, d1);
+            return addNumber(sc, d1);
         }
     }
 
-static String Operator(Scanner sc, String s1) {
+static String addOperator(Scanner sc, String s1) {
         checkForKeywords(sc);
         s1 = sc.next();
         if (s1.equals("+") || s1.equals("-") || s1.equals("*") || s1.equals("/")|| s1.equals("^")|| s1.equals("log")) {
@@ -73,7 +73,7 @@ static String Operator(Scanner sc, String s1) {
         else {
             sc.nextLine();
             System.out.println("Введите оператор.");
-            return Operator(sc, s1);
+            return addOperator(sc, s1);
         }
     }
 static void checkForKeywords(Scanner sc) {
