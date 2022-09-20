@@ -52,7 +52,7 @@ public class SimpletonCalculator {
         }
 
 static BigDecimal Number(Scanner sc, BigDecimal d1) {
-        checkForWords(sc);
+        checkForKeywords(sc);
         try {
             d1 = sc.nextBigDecimal();
             sc.nextLine();
@@ -65,7 +65,7 @@ static BigDecimal Number(Scanner sc, BigDecimal d1) {
     }
 
 static String Operator(Scanner sc, String s1) {
-        checkForWords(sc);
+        checkForKeywords(sc);
         s1 = sc.next();
         if (s1.equals("+") || s1.equals("-") || s1.equals("*") || s1.equals("/")|| s1.equals("^")|| s1.equals("log")) {
             return s1;
@@ -76,7 +76,7 @@ static String Operator(Scanner sc, String s1) {
             return Operator(sc, s1);
         }
     }
-static void checkForWords(Scanner sc) {
+static void checkForKeywords(Scanner sc) {
         if (sc.hasNext("exit")) { 
             System.out.println("Выход из программы.");
             System.exit(155);
